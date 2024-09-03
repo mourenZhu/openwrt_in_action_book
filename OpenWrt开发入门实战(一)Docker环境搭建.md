@@ -126,7 +126,7 @@ git pull upstream openwrt-23.05:openwrt-23.05 #pull openwrt-23.05
 git checkout -b openwrt-23.05-study-demo # 创建一个demo分支
 ```
 
-# 4.编译OpenWrt 
+# 4. 编译OpenWrt 
 ## 4.1 编译前准备
 ```shell
 # 更新、下载软件包，如果由于众所周知的网络问题导致下载失败，可以先配置代理
