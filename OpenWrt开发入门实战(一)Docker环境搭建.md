@@ -18,7 +18,7 @@ docker-linux-env/
 以下为各文件的具体内容  
 
 docker-compose.yml
-``` 
+``` yml
 version: '3'
 services:
   ubuntu-compile-openwrt:
@@ -38,7 +38,7 @@ volumes:
 ```
 
 Dockerfile
-```
+```dockerfile
 # 以最新的Ubuntu镜像为模板
 FROM ubuntu:24.04
 
@@ -50,7 +50,7 @@ RUN cp /root/sources.list  /etc/apt/sources.list
 
 RUN apt update
 # 安装常用工具
-RUN apt install -y vim git
+RUN apt install -y vim git nano
 
 # 安装编译OpenWrt官方实例相关工具
 RUN apt install -y build-essential clang flex bison g++ gawk \
@@ -133,6 +133,13 @@ git checkout -b openwrt-23.05-study-demo # 创建一个demo分支
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 ```
+在OpenWrt项目中`staging_dir/host/bin`目录下有与编译目标无关的通用工具，这些工具在我们之后的开发中有所帮助，现在把这些工具加入到环境变量中。
+```shell
+export PATH=/home/buildbot/openwrt/staging_dir/host/bin:$PATH
+```
+最好把上面那条命令追加到`~/.bash_profile`中，不然退出登陆后会失效。
+
+
 ## 4.2 选择构建目标版本
 ```shell
 # Target System选择x86, Subtarget选择x86_64 Target Profile选择Generic x86/64，然后按Esc退出并保存。选择X86是方便在本机设备上进行测试。
@@ -162,7 +169,7 @@ openwrt-example/
 ```
 
 docker-compose.yml
-```
+```yml
 version: '3'
 services:
   openwrt-23.05-study-demo:
@@ -177,7 +184,7 @@ services:
 ```
 
 Dockerfile
-```
+```dockerfile
 # 空白镜像
 FROM scratch
 

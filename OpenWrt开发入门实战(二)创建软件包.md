@@ -61,7 +61,7 @@ touch Makefile
 
 选择vi或者其他文本编辑器将以下内容写入Makefile，请注意，文件中有较短和较长的空白缩进。较短的是简单空格字符，而较长的是硬制表符（Tab），本章相关的几个文件是由OpenWrt自己的GUN Make编译的，而`GUN Make的缩进不接受空格`。
 
-```
+```dockerfile
 include $(TOPDIR)/rules.mk
 
 # Name, version and release number
