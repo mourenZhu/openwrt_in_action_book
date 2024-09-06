@@ -72,7 +72,7 @@ cd /home/buildbot/helloopenwrt
 make clean
 make
 ```
-如果一切正常，当前目录下会有一个文件`helloworld`，可以执行`./helloworld`
+如果一切正常，当前目录下会有一个文件`helloopenwrt`，可以执行`./helloopenwrt`
 
 # 2. 修改包清单文件
 我们编写完`Makefile`后，在包清单文件里面还是原有的编译方式，这时我们需要修改包清单文件`/home/buildbot/mypackages/examples/helloopenwrt/Makefile`。只需要修改`Build/Compile`部分，修改内容如下
@@ -90,7 +90,7 @@ endef
 修改包清单文件后，我们就可以再次构建包了。
 ```shell
 cd /home/buildbot/openwrt
-make package/helloworld/{clean,compile}
+make package/helloopenwrt/{clean,compile}
 ```
 
 如果构建包时出现异常，可能需要更新feeds

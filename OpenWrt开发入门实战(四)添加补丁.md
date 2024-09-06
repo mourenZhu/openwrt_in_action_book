@@ -167,7 +167,7 @@ make package/helloopenwrt/update
 在上一节我们更新了软件包，所以我们先要重新编译软件包
 ```shell
 cd /home/buildbot/openwrt
-make package/helloworld/{clean,compile}
+make package/helloopenwrt/{clean,compile}
 ```
 然后根据第二章的内容，将新的软件包放入openwrt容器中，进行测试。
 如果不出意外，安装完新的`helloopenwrt`包之后，执行`helloopenwrt`，会出现以下结果
